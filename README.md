@@ -1,4 +1,4 @@
-# Projeto de Demonstração de Cluster de Strings em PHP
+# Projeto de Demonstração de Cluster de Strings em PHP (Em produção)
 
 Este projeto tem como objetivo demonstrar a utilização de técnicas de clusterização para agrupar strings com características semelhantes. A clusterização de strings é amplamente utilizada em áreas como processamento de linguagem natural, análise de dados e recuperação de informações.
 
