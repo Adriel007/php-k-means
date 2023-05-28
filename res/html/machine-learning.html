@@ -9,29 +9,41 @@
 
 <body>
     <p>
-        Para gerar texto com base em uma coleção de textos, primeiro contaremos todas as palavras que aparecem na
-        coleção. Depois, para cada palavra armazenaremos as palavras que subsequentes dessa. Exemplo:
-    </p>
-    <code>
-        "Esse é um exemplo de texto."<br>
-        Número de palavras: 6<br>
-        Armazenando (palavra, palavra subsequente):<br>
-        [(Esse, é),(é, um),(um, exemplo),(exemplo, de),(de, texto.)]
-    </code>
-    <p>
-        Para testar o algoritmo, precisamos de uma coleção de texto. Quanto mais texto sobre o mesmo assunto, melhor.
-        Além disso, o ideal é que os textos apresentem “similaridade” entre si. Nada melhor do que a prática para
-        entendermos esses detalhes.
+        O agrupamento K-means é um dos algoritmos de aprendizado de máquina não supervisionados mais simples e
+        populares.
     </p>
     <p>
-        Similaridade está entre aspas por que não se trata de similaridade semantica e sim de temas semelhantes. Não
-        adianta juntarmos textos sobre Impressoras e Jardins e esperar que geraremos algo que faça o mínimo de sentido
-        (Teste, vale a pena).
+        Normalmente, algoritmos não supervisionados fazem inferências a partir de conjuntos de dados usando apenas
+        vetores de entrada sem se referir a resultados conhecidos ou rotulados.
+    </p>
+    <p>
+        AndreyBu , que tem mais de 5 anos de experiência em aprendizado de máquina e atualmente ensina suas habilidades
+        às pessoas, diz que “o objetivo do K-means é simples: agrupar pontos de dados semelhantes e descobrir padrões
+        subjacentes. Para atingir esse objetivo, o K-means procura um número fixo ( k ) de clusters em um conjunto de
+        dados.”
+    </p>
+    <p>
+        Um cluster refere-se a uma coleção de pontos de dados agregados devido a certas semelhanças.
+    </p>
+    <p>
+        Você definirá um número alvo k , que se refere ao número de centróides necessários no conjunto de dados. Um
+        centróide é a localização imaginária ou real que representa o centro do cluster.
+    </p>
+    <p>
+        Cada ponto de dados é alocado para cada um dos clusters por meio da redução da soma dos quadrados dentro do
+        cluster.
+    </p>
+    <p>
+        Em outras palavras, o algoritmo K-means identifica o número k de centróides e, em seguida, aloca todos os pontos
+        de dados para o cluster mais próximo, mantendo os centróides o menor possível.
+    </p>
+    <p>
+        Os 'meios' no K-means referem-se à média dos dados; isto é, encontrar o centróide.
     </p>
 
     <h4>Fontes:</h4>
     <cite>
-        https://medium.com/botsbrasil/gerando-texto-com-cadeias-de-markov-usando-python-313e67a0e713
+        https://towardsdatascience.com/understanding-k-means-clustering-in-machine-learning-6a6e67336aa1
     </cite>
 </body>
 
