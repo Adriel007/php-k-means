@@ -1,14 +1,14 @@
 # Projeto de Demonstração de K-Means de Strings em PHP (Em produção)
 
-Este projeto tem como objetivo demonstrar a utilização de técnicas de clusterização para agrupar strings com características semelhantes. A clusterização de strings é amplamente utilizada em áreas como processamento de linguagem natural, análise de dados e recuperação de informações.
+Este projeto tem como objetivo demonstrar a utilização da técnica de clusterização chamada K-Means para agrupar strings com características semelhantes. A clusterização de strings é amplamente utilizada em áreas como processamento de linguagem natural, análise de dados e recuperação de informações.
 
 ## Descrição do Projeto
 
-Este projeto consiste em uma implementação de clusterização de strings em PHP. O objetivo é mostrar como é possível agrupar strings com base em suas características comuns, permitindo a organização e análise de conjuntos de dados textuais. A clusterização de strings pode ser útil em diversas aplicações, como categorização de documentos, agrupamento de produtos em comércio eletrônico, entre outros.
+Este projeto consiste em uma implementação de K-Means de strings em PHP. O objetivo é mostrar como é possível agrupar strings com base em suas características comuns, permitindo a organização e análise de conjuntos de dados textuais. A clusterização de strings pode ser útil em diversas aplicações, como categorização de documentos, agrupamento de produtos em comércio eletrônico, entre outros.
 
 ## Funcionalidades
 
-- Implementação de técnicas de clusterização de strings em PHP
+- Implementação de técnicas de clusterização K-Means de strings em PHP
 - Agrupamento de strings com características semelhantes em clusters
 - Avaliação da qualidade dos clusters formados
 - Exemplo de aplicação da clusterização de strings em um conjunto de dados de exemplo
