@@ -1,11 +1,10 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 mb_internal_encoding('UTF-8');
-include(dirname(__DIR__) . '/machine-learning/markov-chain.php');
+include(dirname(__DIR__) . '/machine-learning/k-means.php');
 error_reporting(0);
 
 if (isset($_FILES['file'])) {
-    $level = $_POST['level'] | 2;
     $tmp = $_FILES['file']['tmp_name'];
     $content = file_get_contents($tmp);
     $array = explode('@separatorphp@', $content);
@@ -20,12 +19,27 @@ if (isset($_FILES['file'])) {
 } else
     echo json_encode(['error' => 'Nenhum arquivo foi enviado'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-function markov_chain($dataset, $level)
+function kmeans($texts, $k = 3, $maxIter = 100, $tolerance = 0.0001)
 {
-    $arr = [];
-    $mkc = new MarkovChain($level); // 1-2 low cohesion high creativity, 3-4 medium cohesion medium creativity, 5+ high cohesion low creativity
-    $mkc->train($dataset);
-    $arr['markov'] = $mkc->generateText(200);
-    $arr['score'] = $mkc->scoreGeneratedText($arr['markov']);
-    return $arr;
+    // Cria uma instância da classe Cluster
+    $cluster = new KMeans($k, $maxIter, $tolerance);
+    // Adiciona os documentos ao cluster
+    foreach ($texts as $text) {
+        $text = $cluster->clean($text, false);
+        $document = array_count_values(str_word_count($text, 1));
+        $cluster->addDocument($document);
+    }
+
+    // Executa o algoritmo K-means
+    $cluster->run();
+
+    // Obtém os clusters resultantes
+    $clusters = $cluster->getClusters();
+
+    // Retorna os clusters como array associativo
+    $result = [];
+    foreach ($clusters as $clusterIndex => $documents)
+        $result['Cluster ' . ($clusterIndex + 1)] = $documents;
+
+    return $result;
 }
