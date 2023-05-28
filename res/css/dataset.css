@@ -19,6 +19,12 @@ p {
     margin: 10px 0 10px 0;
 }
 
+a,
+a:visited,
+a:active {
+    color: #0099ff;
+}
+
 ul {
     margin: 10px;
     margin-left: 50px;
