@@ -3,30 +3,31 @@
 
 <head>
     <!--iframe caching, be careful-->
-    <link rel="stylesheet" href="../css/generator.css">
-    <script defer src="../javascript/generator.js"></script>
+    <link rel="stylesheet" href="../css/generator.css?version123">
+    <script defer src="../javascript/generator.js?version123"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.00">
 </head>
 
 <body>
-    <h2>Grupos:</h2>
+    <h2>Textos:</h2>
     <div class="div-textareas">
         <div>
-            <textarea placeholder="Insira um texto para o treinamento..."></textarea>
+            <textarea placeholder="Insira um texto para o agrupamento..."></textarea>
+            <textarea placeholder="Insira um texto para o agrupamento..."></textarea>
         </div>
         <div>
-            <button onclick="removeTextArea(this)">-</button>
-            <button onclick="newTextArea(this)">+</button>
+            <button onclick="removeTextArea()">-</button>
+            <button onclick="newTextArea()">+</button>
         </div>
-        </fieldset>
     </div>
     <textarea readonly placeholder="Resultado..."></textarea>
 
     <h2>Configurações:</h2>
     <div class="div-classify">
-        <textarea placeholder="Insira um texto a ser classificado" id="string"></textarea>
-        <button onclick="send()">Classificar</button>
+        <h3>Valor de K:</h3>
+        <input type="number" placeholder="Ex: 2" min="2" value="2" id="k">
+        <button onclick="send()">Agrupar</button>
     </div>
 
 </body>

@@ -1,25 +1,18 @@
 function send() {
-    const groups = [];
-
-    for (const value of document.querySelectorAll(".div-textareas fieldset")) {
-        const json = {
-            title: value.children[0].textContent,
-            array: []
-        };
-
-        for (let c = 0; c < value.children[1].children.length; c++)
-            json.array.push(value.children[1].children[c].value);
-
-        groups.push(json);
-    }
-
     const result = document.querySelector("textarea[readonly]");
-    const string = document.getElementById("string").value;
+    const k = document.getElementById("k").value;
 
-    const file = new Blob([JSON.stringify(groups)], { type: 'application/json;charset=utf-8' });
+    const json = {
+        array: [],
+        k: k | 2
+    };
+
+    for (const textarea of document.querySelectorAll(".div-textareas div")[0].children)
+        json.array.push(textarea.value);
+
+    const file = new Blob([JSON.stringify(json)], { type: 'application/json;charset=utf-8' });
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('string', string);
     fetch('../php/scripts.php', {
         method: 'POST',
         body: formData
@@ -27,12 +20,14 @@ function send() {
         .then(response => response.json())
         .then(data => {
             data = data.result;
-            console.log(data)
-            let str = "Seu texto foi classificado na seguinte ordem:\n";
+            let str = "Agrupamentos:\n";
+
             for (const key in data) {
-                console.log(key)
-                str += `${key}: ${(data[key] * 100).toFixed(3)}%\n`;
+                let aux = "\n\t- ";
+                aux += data[key].join("\n\t- ");
+                str += `${key}: ${aux};\n\n`;
             }
+
             result.value = str;
         })
         .catch(error => {
@@ -40,24 +35,16 @@ function send() {
         });
 }
 
-function newTextArea(element) {
-    if (element?.target)
-        element = element.target;
-
-    const counter = element.classList[0].split("-")[1];
-    const container = document.querySelectorAll(".div-textareas")[counter - 1].children[1];
+function newTextArea() {
+    const container = document.querySelectorAll(".div-textareas div")[0];
     const textarea = document.createElement("textarea");
-    textarea.placeholder = "Insira um texto para o treinamento...";
+    textarea.placeholder = "Insira um texto para o agrupamento...";
     container.appendChild(textarea);
 }
 
-function removeTextArea(element) {
-    if (element?.target)
-        element = element.target;
+function removeTextArea() {
+    const container = document.querySelectorAll(".div-textareas div")[0];
 
-    const counter = element.classList[0].split("-")[1];
-    const container = document.querySelectorAll(".div-textareas")[counter - 1].children[1];
-
-    if (container.children.length >= 2)
+    if (container.children.length > 2)
         container.children[container.children.length - 1].remove();
 }
