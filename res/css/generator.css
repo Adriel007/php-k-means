@@ -25,14 +25,41 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: fit-content;
 }
 
-.div-textareas textarea {
+.div-textareas {
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    border: solid 3px #fff;
+    border-radius: 15px;
+}
+
+.div-textareas div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: fit-content;
+}
+
+
+.div-textareas div textarea,
+.div-classify textarea {
     background-color: #000;
     border: solid 3px #666;
+}
+
+.div-textareas div button {
+    width: 50px;
+    height: 50px;
+    font-size: 2em;
+    border-radius: 50%;
 }
 
 input {
@@ -67,16 +94,7 @@ textarea[readonly]::placeholder {
     color: #333;
 }
 
-.div-buttons {
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 100%;
-}
-
-.div-ranges {
+.div-classify {
     background-color: #000;
     width: 200px;
     height: fit-content;
